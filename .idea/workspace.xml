@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SouthMobCoins:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="45c9f165-1dfd-434b-b1d6-2fcf7e04e634" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1am8HBUDqlk9mxU1Iy38Ohz9Bp2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="southmobcoins" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/shop.yml" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.14550781" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.smart.mobcoins.database.list" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\smart_000\IdeaProjects\SouthMobCoins\src\main\java\net\smart\mobcoins\grapple" />
+    </key>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="445" y="29" key="#com.intellij.ide.util.MemberChooser" timestamp="1587397829159">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="445" y="29" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1587397829159" />
+    <state x="346" y="80" key="FileChooserDialogImpl" timestamp="1587400955544">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="346" y="80" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587400955544" />
+    <state x="120" y="0" key="SettingsEditor" timestamp="1587400958857">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="120" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587400958857" />
+    <state x="316" y="162" key="com.intellij.ide.util.TipDialog" timestamp="1587393741108">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="316" y="162" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587393741108" />
+    <state x="296" y="145" key="run.anything.popup" timestamp="1587348423777">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="296" y="145" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587348423777" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587403504913">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1587403504913" />
+  </component>
+</project>

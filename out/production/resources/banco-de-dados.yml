@@ -1,0 +1,15 @@
+#==========================================================================#
+#                            SouthMobCoins                                 #
+#                                                                          #
+#                            Version 1.0.0                                 #
+#                                                                          #
+#                        Contato(Twitter): @SmarttBR                       #
+#==========================================================================#
+
+mysql:
+  enable: false # Se estiver em "false -> desativado" o banco utilizara SQLite
+  host: "localhost"
+  user: "root"
+  password: ""
+  database: "servidor"
+  port: 3306

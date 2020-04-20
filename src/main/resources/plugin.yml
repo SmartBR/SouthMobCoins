@@ -1,0 +1,11 @@
+name: SouthMobCoins
+version: 1.0.0
+author: Smart
+main: net.smart.mobcoins.Main
+softdepend:
+  - Legendchat
+  - MVdWPlaceholderAPI
+
+commands:
+  mobcoins:
+    aliases: [mobcoin, mb, mbcoins, mcoins]

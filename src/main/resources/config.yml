@@ -1,0 +1,57 @@
+#==========================================================================#
+#                            SouthMobCoins                                 #
+#                                                                          #
+#                            Version 1.0.0                                 #
+#                                                                          #
+#                        Contato(Twitter): @SmarttBR                       #
+#==========================================================================#
+
+#====================#
+#     Placeholders   #
+#====================#
+
+# Legendchat: {south-mcoins}
+# MVdWPlaceholderAPI: Qualquer plugin que use o "MVdW", o placeholder é {south-mcoins}
+
+
+
+# A nossa placeholder é {smobcoins}, para funcionar utilize o plugin 'MVdWPlaceholderAPI"
+
+# Comando -> "mobcoins, mbcoins/mbcoins e mb"
+# Permissão de admin: southdev.mobcoins.admin
+
+# Ative/Desative os sub-comandos
+sub-commands:
+  enviar: true # Se "false" desativa /mobcoins enviar <jogador> <quantia> assim por diante
+  adicionar: true
+  remover: true
+  setar: true
+  top: true
+
+# Valor inicial ao entrar no servidor
+default-value: 0
+
+# Mensagem
+mob-message:
+  tick-message:
+    # Se estiver "true", o jogador receberá os coins a cada hit aplicado no mob
+    # Se estuver "fakse", o jogador receberá os coins a cada vez que matar o mob
+    enable: true
+    message:
+      - "&6&l[MOB COINS] &a+{value} mob coins &7(Total: {total})"
+
+# Caso o mob não esteja na lista "mob-list", será executado as ações abaixo
+default-mob:
+  # Só irá funcionar se estiver "true"
+  #"Irá dar 10.0 coins para mobs que não estão na lista "mob-list"
+  enable: true
+  value: 10
+
+mob-list:
+  # Se o "enable" do tick-message estiver ativado, o valor abaixo será dadp a cada vez que o jogador hitar o mob
+  ZOMBIE: 50
+  COW: 150
+  CHICKEN: 250
+  SHEEP: 350
+  ENDERMAN: 150
+  PIG: 50

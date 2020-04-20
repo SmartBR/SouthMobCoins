@@ -1,0 +1,78 @@
+#==========================================================================#
+#                            SouthMobCoins                                 #
+#                                                                          #
+#                            Version 1.0.0                                 #
+#                                                                          #
+#                        Contato(Twitter): @SmarttBR                       #
+#==========================================================================#
+
+# Comandos: /mobcoins shop ou /mshop | /mbshop
+# Configurações Principais do Menu
+gui:
+  enable: true # Ative/Desativa o sistema de shop
+  title: "&a&nLoja MobCoins"
+  size: 3 # 3 rows/linhas
+
+# Algumas mensagens configuraveis
+messages:
+  erro-buy:
+    - "&cVocê precisa de {value} mob coins para comprar este item."
+  sucess-buy:
+    # {item} -> Tipo do item, exeplo: STONE
+    # {item-displayname} - Nome do item
+    - "&a&l[MOB COINS] &fVocê comprou &a{item} &7({size}x) &fpor &a{value} mob coins&f!"
+
+
+# Configurações dos itens
+itens:
+  sword:
+    displayname: "&aEspada Divina"
+    lore:
+      - "&7Item Especial"
+      - ""
+      - "&fSeja um DEUS no jogo!"
+      - ""
+      - "&fPreço: &a{price} Mob Coins"
+      - "&fQuantidade: &7{size}x"
+      - ""
+      - "&aClique para comprar."
+    id: '276:0' #Caso não tenha ID, deixe zero
+    size: 1 # Quantia de itens, exemplo: quero vender 10 blocos de pedra
+    slot: 11 # O slot zero não existe
+    price: 500
+    commands:
+      - 'give {player} diamond_sword' #será executado pelo console
+  stone:
+    displayname: "&aPedra Divina"
+    lore:
+      - "&7Item Especial"
+      - ""
+      - "&fSeja um DEUS no jogo!"
+      - ""
+      - "&fPreço: &a{price} Mob Coins"
+      - "&fQuantidade: &7{size}x"
+      - ""
+      - "&aClique para comprar."
+    id: '1:0' #Caso não tenha ID, deixe zero
+    size: 10
+    slot: 12
+    price: 1200
+    commands:
+      - 'give {player} stone {size}' #será executado pelo console
+  diamond:
+    displayname: "&bDiamante Divino"
+    lore:
+      - "&7Item Especial"
+      - ""
+      - "&fSeja um DEUS no jogo!"
+      - ""
+      - "&fPreço: &a{price} Mob Coins"
+      - "&fQuantidade: &7{size}x"
+      - ""
+      - "&aClique para comprar."
+    id: '264:0' #Caso não tenha ID, deixe zero
+    size: 30
+    slot: 13
+    price: 5000
+    commands:
+      - 'give {player} diamond {size}' #será executado pelo console

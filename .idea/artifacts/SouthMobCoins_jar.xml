@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SouthMobCoins:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SouthMobCoins_jar</output-path>
+    <root id="archive" name="SouthMobCoins.jar">
+      <element id="module-output" name="SouthMobCoins.main" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/banco-de-dados.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/shop.yml" />
+    </root>
+  </artifact>
+</component>
