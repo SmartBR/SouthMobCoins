@@ -1,5 +1,6 @@
 package net.smart.mobcoins.database.object;
 
+import lombok.Data;
 import net.smart.mobcoins.Main;
 import net.smart.mobcoins.database.Database;
 import org.bukkit.Bukkit;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Data
 public class PlayerCoins {
 
     private static HashMap<String, PlayerCoins> playerMap = new HashMap<>();
@@ -19,17 +21,6 @@ public class PlayerCoins {
     private String player;
     private Integer coins;
 
-    public PlayerCoins(String player, Integer coins) {
-        this.player = player;
-        this.coins = coins;
-        playerMap.put(player, this);
-    }
-    public static PlayerCoins getPlayer(String player) {
-        if (playerMap.containsKey(player)) {
-            return playerMap.get(player);
-        }
-        return null;
-    }
     public static void loadCaches() {
         Database db = Main.getInstance().database;
         try {
@@ -75,6 +66,14 @@ public class PlayerCoins {
         }
         return top;
     }
+    public PlayerCoins(String player, Integer coins) {
+        this.player = player;
+        this.coins = coins;
+        playerMap.put(player.toLowerCase(), this);
+    }
+    public static PlayerCoins getPlayer(String player) {
+        return playerMap.getOrDefault(player.toLowerCase(), null);
+    }
     public void saveAsync() {
         new BukkitRunnable() {
             @Override
@@ -99,18 +98,6 @@ public class PlayerCoins {
         }catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    public String getPlayer() {
-        return player;
-    }
-    public void setPlayer(String player) {
-        this.player = player;
-    }
-    public Integer getCoins() {
-        return coins;
-    }
-    public void setCoins(Integer coins) {
-        this.coins = coins;
     }
     public void addCoins(Integer coins) {
         setCoins(getCoins() + coins);

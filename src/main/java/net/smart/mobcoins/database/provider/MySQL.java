@@ -1,20 +1,19 @@
-package net.smart.mobcoins.database.list;
+package net.smart.mobcoins.database.provider;
 
 import net.smart.mobcoins.Main;
 import net.smart.mobcoins.database.Database;
 import org.bukkit.Bukkit;
 
-import java.io.File;
 import java.sql.*;
 
-public class SQLite implements Database {
+public class MySQL implements Database {
 
     private Connection con;
     private Statement statement;
 
     @Override
     public String getName() {
-        return "SQLite";
+        return "MySQL";
     }
     @Override
     public Connection getConnection() {
@@ -25,17 +24,20 @@ public class SQLite implements Database {
         return statement;
     }
     @Override
-    public SQLite open() {
-        File file = new File(Main.getInstance().getDataFolder(), "database.db");
-        String url = "jdbc:sqlite:" + file;
+    public MySQL open() {
+        String host = Main.getInstance().banco.getString("mysql.host");
+        String user = Main.getInstance().banco.getString("mysql.user");
+        String password = Main.getInstance().banco.getString("mysql.password");
+        String database = Main.getInstance().banco.getString("mysql.database");
+        Integer port = Main.getInstance().banco.getInt("mysql.port");
+        String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?autoReconnect=true";
 
         try {
-            Class.forName("org.sqlite.JDBC");
             if (con == null || (con.isClosed())) {
-                con = DriverManager.getConnection(url);
+                con = DriverManager.getConnection(url, user, password);
                 statement = con.createStatement();
             }
-        }catch (Exception e) {
+        }catch (SQLException e) {
             Bukkit.getConsoleSender().sendMessage("§c[SouthMobCoins] §fHouve um erro ao conectar-se com o mysql!");
             Bukkit.getConsoleSender().sendMessage("§c[SouthMobCoins] §fDetalhes: §c" + e.getLocalizedMessage());
             Bukkit.getPluginManager().disablePlugin(Main.getInstance());
@@ -55,8 +57,9 @@ public class SQLite implements Database {
     }
     @Override
     public void createTable() {
-        execute("create table if not exists `mobcoins` (`Jogador` text, " +
-                "`Coins` text)");
+        execute("create table if not exists `mobcoins` (`ID` int not null auto_increment, " +
+                "`Jogador` varchar(20), `Coins` int not null, " +
+                "primary key(ID))");
     }
     @Override
     public Boolean hasConnect() {

@@ -37,11 +37,11 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="southmobcoins" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/shop.yml" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/HelixMC/RankUP [century]/plugins/LegendChat.jar!/" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14550781" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -56,22 +56,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="445" y="29" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1587397829159" />
-    <state x="346" y="80" key="FileChooserDialogImpl" timestamp="1587400955544">
+    <state x="370" y="93" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1587758015517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="346" y="80" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587400955544" />
-    <state x="120" y="0" key="SettingsEditor" timestamp="1587400958857">
+    <state x="370" y="93" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1587758015517" />
+    <state x="346" y="80" key="FileChooserDialogImpl" timestamp="1587756985979">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="120" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587400958857" />
-    <state x="316" y="162" key="com.intellij.ide.util.TipDialog" timestamp="1587393741108">
+    <state x="346" y="80" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587756985979" />
+    <state x="120" y="0" key="SettingsEditor" timestamp="1587758019677">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="316" y="162" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587393741108" />
-    <state x="296" y="145" key="run.anything.popup" timestamp="1587348423777">
+    <state x="120" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587758019677" />
+    <state x="316" y="162" key="com.intellij.ide.util.TipDialog" timestamp="1587756842735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="296" y="145" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587348423777" />
+    <state x="316" y="162" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587756842735" />
+    <state x="296" y="145" key="run.anything.popup" timestamp="1587752328232">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="296" y="145" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587752328232" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587403504913">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

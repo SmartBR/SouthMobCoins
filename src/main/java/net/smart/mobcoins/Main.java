@@ -1,9 +1,10 @@
 package net.smart.mobcoins;
 
+import lombok.Getter;
 import net.smart.mobcoins.command.MobCoinsCMD;
 import net.smart.mobcoins.database.Database;
-import net.smart.mobcoins.database.list.MySQL;
-import net.smart.mobcoins.database.list.SQLite;
+import net.smart.mobcoins.database.provider.MySQL;
+import net.smart.mobcoins.database.provider.SQLite;
 import net.smart.mobcoins.database.listener.PlayerCoinsListener;
 import net.smart.mobcoins.database.listener.PlayerQuitListener;
 import net.smart.mobcoins.database.object.PlayerCoins;
@@ -24,19 +25,18 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Main extends JavaPlugin {
 
     public Database database;
     public Boolean damageTick;
-    public List<PlayerCoins> topCoins = new ArrayList<>();
+    @Getter public List<PlayerCoins> topCoins = new ArrayList<>();
 
-    public List<MobObject> mobsCache;
-    private List<ShopItem> shopItens;
-    private ShopInventory shopInventory;
-    private ShopMessages shopMessages;
+    @Getter public List<MobObject> mobsCache;
+    @Getter private List<ShopItem> shopItens;
+    @Getter private ShopInventory shopInventory;
+    @Getter private ShopMessages shopMessages;
 
     private File banco2 = new File(getDataFolder(), "banco-de-dados.yml");
     public YamlConfiguration banco;
@@ -70,11 +70,11 @@ public class Main extends JavaPlugin {
     }
     private void loadObjects() {
         if (database.hasConnect()) {
-            shopItens = ShopItem.loadItens();
-            shopInventory = ShopInventory.loadShopInventory();
+            shopItens = ShopItem.load();
+            shopInventory = ShopInventory.load();
             damageTick = getConfig().getBoolean("mob-message.tick-message.enable");
-            mobsCache = MobObject.loadMobObjects();
-            shopMessages = ShopMessages.loadShopMessages();
+            mobsCache = MobObject.load();
+            shopMessages = ShopMessages.load();
             loadTopCoins();
         }
     }
@@ -121,15 +121,6 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new EntityDamageListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
         pm.registerEvents(new InventoryClickListener(), this);
-    }
-    public List<ShopItem> getShopItens() {
-        return shopItens;
-    }
-    public ShopMessages getShopMessages() {
-        return shopMessages;
-    }
-    public ShopInventory getShopInventory() {
-        return shopInventory;
     }
     public void saveBancoFile() {
         try {

@@ -1,11 +1,13 @@
 package net.smart.mobcoins.mob;
 
+import lombok.Data;
 import net.smart.mobcoins.Main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Data
 public class MobObject {
 
     private static HashMap<String, MobObject> mobs = new HashMap<>();
@@ -13,18 +15,10 @@ public class MobObject {
     private String type;
     private Integer price;
 
-    public MobObject(String type, Integer price) {
-        this.type = type;
-        this.price = price;
-        mobs.put(type, this);
-    }
     public static MobObject getMob(String mobType) {
-        if (mobs.containsKey(mobType)) {
-            return mobs.get(mobType);
-        }
-        return null;
+        return mobs.getOrDefault(mobType, null);
     }
-    public static List<MobObject> loadMobObjects() {
+    public static List<MobObject> load() {
         List<MobObject> list = new ArrayList<>();
         for (String mob : Main.getInstance().getConfig().getConfigurationSection("mob-list").getKeys(false)) {
             MobObject mobObject = new MobObject(mob, Main.getInstance().getConfig().getInt("mob-list." + mob));
@@ -32,16 +26,9 @@ public class MobObject {
         }
         return list;
     }
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
+    public MobObject(String type, Integer price) {
         this.type = type;
-    }
-    public Integer getPrice() {
-        return price;
-    }
-    public void setPrice(Integer price) {
         this.price = price;
+        mobs.put(type, this);
     }
 }

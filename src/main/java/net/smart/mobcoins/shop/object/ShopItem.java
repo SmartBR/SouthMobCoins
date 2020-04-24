@@ -1,5 +1,6 @@
 package net.smart.mobcoins.shop.object;
 
+import lombok.Data;
 import net.smart.mobcoins.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
@@ -7,10 +8,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+@Data
 public class ShopItem {
 
     private static HashMap<ItemStack, ShopItem> shopP = new HashMap<>();
@@ -21,21 +22,10 @@ public class ShopItem {
     private Integer amount;
     private List<String> commands;
 
-    public ShopItem(ItemStack item, Integer coins, Integer slot, Integer amount, List<String> commands) {
-        this.item = item;
-        this.coins = coins;
-        this.slot = slot;
-        this.amount = amount;
-        this.commands = commands;
-        shopP.put(item, this);
-    }
     public static ShopItem getItem(ItemStack item) {
-        if (shopP.containsKey(item)) {
-            return shopP.get(item);
-        }
-        return null;
+        return shopP.getOrDefault(item, null);
     }
-    public static List<ShopItem> loadItens() {
+    public static List<ShopItem> load() {
         List<ShopItem> list = new ArrayList<>();
         for (String item : Main.getInstance().shop.getConfigurationSection("itens").getKeys(false)) {
             String displayname = Main.getInstance().shop.getString("itens." + item + ".displayname").replace("&", "§");
@@ -67,34 +57,12 @@ public class ShopItem {
         }
         return list;
     }
-    public ItemStack getItem() {
-        return item;
-    }
-    public void setItem(ItemStack item) {
+    public ShopItem(ItemStack item, Integer coins, Integer slot, Integer amount, List<String> commands) {
         this.item = item;
-    }
-    public Integer getCoins() {
-        return coins;
-    }
-    public void setCoins(Integer coins) {
         this.coins = coins;
-    }
-    public void setSlot(Integer slot) {
         this.slot = slot;
-    }
-    public Integer getSlot() {
-        return slot;
-    }
-    public Integer getAmount() {
-        return amount;
-    }
-    public void setAmount(Integer amount) {
         this.amount = amount;
-    }
-    public List<String> getCommands() {
-        return commands;
-    }
-    public void setCommands(List<String> commands) {
         this.commands = commands;
+        shopP.put(item, this);
     }
 }

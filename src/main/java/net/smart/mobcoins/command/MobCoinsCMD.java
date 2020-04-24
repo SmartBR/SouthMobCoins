@@ -2,13 +2,15 @@ package net.smart.mobcoins.command;
 
 import net.smart.mobcoins.Main;
 import net.smart.mobcoins.database.object.PlayerCoins;
-import net.smart.mobcoins.shop.ShopInventoryBuilder;
 import net.smart.mobcoins.shop.object.ShopInventory;
+import net.smart.mobcoins.shop.object.ShopItem;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.text.DecimalFormat;
 
@@ -50,8 +52,17 @@ public class MobCoinsCMD implements CommandExecutor {
                         break;
                     case "shop":
                         ShopInventory inv = Main.getInstance().getShopInventory();
-                        if (inv.isEnable()) {
-                            new ShopInventoryBuilder().open(p);
+                        if (inv.getEnable()) {
+                            ShopInventory inventory = Main.getInstance().getShopInventory();
+                            Inventory inv2 = Bukkit.createInventory(null, inventory.getSize() * 9, inventory.getTitle());
+                            for (ShopItem item : Main.getInstance().getShopItens()) {
+                                ItemStack i = item.getItem();
+                                if (i.getAmount() >= 64) {
+                                    i.setAmount(64);
+                                }
+                                inv2.setItem(item.getSlot() + 1, i);
+                            }
+                            p.openInventory(inv2);
                         } else {
                             p.sendMessage("§cEste sistema está desativado na configuração do plugin.");
                         }
