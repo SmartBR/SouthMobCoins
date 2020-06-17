@@ -1,6 +1,8 @@
 package net.smart.mobcoins.placeholder;
 
 import br.com.devpaulo.legendchat.api.events.ChatMessageEvent;
+import net.smart.mobcoins.Main;
+import net.smart.mobcoins.database.object.CoinsManager;
 import net.smart.mobcoins.database.object.PlayerCoins;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,7 +17,9 @@ public class LegendchatHook implements Listener {
         Player p = e.getSender();
 
         if (e.getTags().contains("south-mcoins")) {
-            e.setTagValue("south-mcoins", new DecimalFormat().format(PlayerCoins.getPlayer(p.getName()).getCoins()));
+            CoinsManager coinsManager = Main.getInstance().getCoinsManager();
+            PlayerCoins playerCoins = coinsManager.getPlayer(p.getName());
+            e.setTagValue("south-mcoins", new DecimalFormat().format(playerCoins.getCoins()));
         }
     }
 }

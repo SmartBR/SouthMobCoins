@@ -1,9 +1,11 @@
 package net.smart.mobcoins.shop.listener;
 
 import net.smart.mobcoins.Main;
+import net.smart.mobcoins.database.object.CoinsManager;
 import net.smart.mobcoins.database.object.PlayerCoins;
 import net.smart.mobcoins.shop.object.ShopInventory;
 import net.smart.mobcoins.shop.object.ShopItem;
+import net.smart.mobcoins.shop.object.ShopMessages;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -21,7 +23,8 @@ public class InventoryClickListener implements Listener {
         Player p = (Player) e.getWhoClicked();
 
         if (e.getCurrentItem() != null && (e.getCurrentItem().getItemMeta() != null && (e.getCurrentItem().getItemMeta().getDisplayName() != null))) {
-            PlayerCoins coins = PlayerCoins.getPlayer(p.getName());
+            CoinsManager coinsManager = Main.getInstance().getCoinsManager();
+            PlayerCoins coins = coinsManager.getPlayer(p.getName());
             ShopInventory shopInv = Main.getInstance().getShopInventory();
             List<ShopItem> shopItem = Main.getInstance().getShopItens();
             DecimalFormat df = new DecimalFormat();
@@ -35,7 +38,7 @@ public class InventoryClickListener implements Listener {
                     if (coins.getCoins() >= price) {
                         coins.removeCoins(price);
                         p.playSound(p.getLocation(), Sound.NOTE_PLING, 15.0F, 15.0F);
-                        for (String sucessBuy : Main.getInstance().getShopMessages().getSucessBuy()) {
+                        for (String sucessBuy : ShopMessages.SUCESS_BUY.getMsg()) {
                             p.sendMessage(sucessBuy.replace("&", "§")
                                     .replace("{value}", df.format(price))
                                     .replace("{item}", e.getCurrentItem().getType().toString())
@@ -47,7 +50,7 @@ public class InventoryClickListener implements Listener {
                             .replace("{size}", ShopItem.getItem(e.getCurrentItem()).getAmount().toString()));
                         }
                     }else {
-                        for (String erroBuy : Main.getInstance().getShopMessages().getErroBuy()) {
+                        for (String erroBuy : ShopMessages.ERRO_BUY.getMsg()) {
                             p.sendMessage(erroBuy.replace("&", "§")
                                     .replace("{value}", df.format(price)));
                         }

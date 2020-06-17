@@ -14,10 +14,7 @@
 # MVdWPlaceholderAPI: Qualquer plugin que use o "MVdW", o placeholder é {south-mcoins}
 
 
-
-# A nossa placeholder é {smobcoins}, para funcionar utilize o plugin 'MVdWPlaceholderAPI"
-
-# Comando -> "mobcoins, mbcoins/mbcoins e mb"
+# Comando -> "mobcoins, mbcoins, mbcoins e mb"
 # Permissão de admin: southdev.mobcoins.admin
 
 # Ative/Desative os sub-comandos
@@ -48,7 +45,7 @@ default-mob:
   value: 10
 
 mob-list:
-  # Se o "enable" do tick-message estiver ativado, o valor abaixo será dadp a cada vez que o jogador hitar o mob
+  # Se o "enable" do tick-message estiver ativado, o valor abaixo será dado a cada vez que o jogador hitar o mob
   ZOMBIE: 50
   COW: 150
   CHICKEN: 250

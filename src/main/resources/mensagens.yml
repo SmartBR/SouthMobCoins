@@ -1,0 +1,18 @@
+#==========================================================================#
+#                            SouthMobCoins                                 #
+#                                                                          #
+#                            Version 1.0.0                                 #
+#                                                                          #
+#                        Contato(Twitter): @SmarttBR                       #
+#==========================================================================#
+
+# Aqui está listado todas as mensagens
+
+# Placeholders que você pode utilizar na mensagem: X
+
+# Mensagens do /mobcoins
+mobcoins-message:
+  my-mobcoins:
+    - ""
+    - "&6&l[MOB COINS] &fSeus mob coins: &6{"
+    - ""

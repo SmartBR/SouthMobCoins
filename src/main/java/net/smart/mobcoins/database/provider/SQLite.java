@@ -48,6 +48,7 @@ public class SQLite implements Database {
             if (con != null || (!con.isClosed())) {
                 statement.close();
                 con.close();
+                con = null;
             }
         }catch (SQLException e) {
             e.printStackTrace();

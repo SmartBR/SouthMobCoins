@@ -1,6 +1,7 @@
 package net.smart.mobcoins.listener;
 
 import net.smart.mobcoins.Main;
+import net.smart.mobcoins.database.object.CoinsManager;
 import net.smart.mobcoins.database.object.PlayerCoins;
 import net.smart.mobcoins.mob.MobObject;
 import org.bukkit.entity.Creature;
@@ -22,18 +23,22 @@ public class EntityDamageListener implements Listener {
 
         String type = e.getEntityType().toString();
         if (Main.getInstance().mobsCache.contains(type)) {
+            CoinsManager coinsManager = Main.getInstance().getCoinsManager();
             Integer coins = MobObject.getMob(type).getPrice();
-            PlayerCoins.getPlayer(p.getName()).addCoins(coins);
-            Integer total = PlayerCoins.getPlayer(p.getName()).getCoins();
+            PlayerCoins pCoins = coinsManager.getPlayer(p.getName());
+            pCoins.addCoins(coins);
+            Integer total = pCoins.getCoins();
             for (String msg : Main.getInstance().getConfig().getStringList("mob-message.tick-message.message")) {
                 p.sendMessage(msg.replace("&", "§").replace("{value}", coins.toString())
                     .replace("{total}", new DecimalFormat().format(total)));
             }
         }else {
             if (Main.getInstance().getConfig().getBoolean("default-mob.enable")) {
+                CoinsManager coinsManager = Main.getInstance().getCoinsManager();
+                PlayerCoins pCoins = coinsManager.getPlayer(p.getName());
                 Integer coins = Main.getInstance().getConfig().getInt("default-mob.value");
-                PlayerCoins.getPlayer(p.getName()).addCoins(coins);
-                Integer total = PlayerCoins.getPlayer(p.getName()).getCoins();
+                pCoins.addCoins(coins);
+                Integer total = pCoins.getCoins();
                 for (String msg : Main.getInstance().getConfig().getStringList("mob-message.tick-message.message")) {
                     p.sendMessage(msg.replace("&", "§").replace("{value}", coins.toString())
                             .replace("{total}", new DecimalFormat().format(total)));
@@ -50,18 +55,22 @@ public class EntityDamageListener implements Listener {
 
         String type = e.getEntityType().toString();
         if (Main.getInstance().mobsCache.contains(type)) {
+            CoinsManager coinsManager = Main.getInstance().getCoinsManager();
+            PlayerCoins pCoins = coinsManager.getPlayer(p.getName());
             Integer coins = MobObject.getMob(type).getPrice();
-            PlayerCoins.getPlayer(p.getName()).addCoins(coins);
-            Integer total = PlayerCoins.getPlayer(p.getName()).getCoins();
+            pCoins.addCoins(coins);
+            Integer total = pCoins.getCoins();
             for (String msg : Main.getInstance().getConfig().getStringList("mob-message.tick-message.message")) {
                 p.sendMessage(msg.replace("&", "§").replace("{value}", coins.toString())
                         .replace("{total}", new DecimalFormat().format(total)));
             }
         }else {
             if (Main.getInstance().getConfig().getBoolean("default-mob.enable")) {
+                CoinsManager coinsManager = Main.getInstance().getCoinsManager();
+                PlayerCoins pCoins = coinsManager.getPlayer(p.getName());
                 Integer coins = Main.getInstance().getConfig().getInt("default-mob.value");
-                PlayerCoins.getPlayer(p.getName()).addCoins(coins);
-                Integer total = PlayerCoins.getPlayer(p.getName()).getCoins();
+                pCoins.addCoins(coins);
+                Integer total = pCoins.getCoins();
                 for (String msg : Main.getInstance().getConfig().getStringList("mob-message.tick-message.message")) {
                     p.sendMessage(msg.replace("&", "§").replace("{value}", coins.toString())
                             .replace("{total}", new DecimalFormat().format(total)));

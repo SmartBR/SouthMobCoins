@@ -1,6 +1,7 @@
 package net.smart.mobcoins.command;
 
 import net.smart.mobcoins.Main;
+import net.smart.mobcoins.database.object.CoinsManager;
 import net.smart.mobcoins.database.object.PlayerCoins;
 import net.smart.mobcoins.shop.object.ShopInventory;
 import net.smart.mobcoins.shop.object.ShopItem;
@@ -13,6 +14,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.text.DecimalFormat;
+import java.util.List;
+import java.util.Map;
 
 public class MobCoinsCMD implements CommandExecutor {
 
@@ -24,8 +27,9 @@ public class MobCoinsCMD implements CommandExecutor {
                 return true;
             }
             Player p = (Player) sender;
+            CoinsManager coinsManager = Main.getInstance().getCoinsManager();
             DecimalFormat df = new DecimalFormat();
-            PlayerCoins coins = PlayerCoins.getPlayer(p.getName());
+            PlayerCoins coins = coinsManager.getPlayer(p.getName());
 
             if (args.length == 0) {
                 p.sendMessage("");
@@ -36,16 +40,16 @@ public class MobCoinsCMD implements CommandExecutor {
             if (args.length == 1) {
                 switch (args[0]) {
                     case "top":
-                        p.sendMessage(" §6§lTOP MOB COINS §f(Atualiza a cada 5m)");
-                        Bukkit.broadcastMessage("§aTop Coins size: " + Main.getInstance().topCoins.size());
+                        p.sendMessage(" §6§lTOP MOB COINS");
+                        List<Map.Entry<String, PlayerCoins>> topCoins = coinsManager.getTopCoins();
                         if (Main.getInstance().topCoins.size() >= 9) {
                             for (int i = 0; i < 10; i++) {
-                                PlayerCoins top = Main.getInstance().topCoins.get(i);
+                                PlayerCoins top = topCoins.get(i).getValue();
                                 p.sendMessage("§a" + (i + 1) + "º §7" + top.getPlayer() + " §f- Mob Coins: §6" + df.format(top.getCoins()));
                             }
                         } else {
                             for (int i = 0; i < Main.getInstance().topCoins.size(); i++) {
-                                PlayerCoins top = Main.getInstance().topCoins.get(i);
+                                PlayerCoins top = topCoins.get(i).getValue();
                                 p.sendMessage("§a" + (i + 1) + "º §7" + top.getPlayer() + " §f- Mob Coins: §6" + df.format(top.getCoins()));
                             }
                         }
@@ -72,7 +76,7 @@ public class MobCoinsCMD implements CommandExecutor {
                     default:
                         //TARGET PLAYER
                         String t = args[0];
-                        PlayerCoins tCoins = PlayerCoins.getPlayer(t);
+                        PlayerCoins tCoins = coinsManager.getPlayer(t);
                         if (tCoins != null) {
                             p.sendMessage("");
                             p.sendMessage("§6§l[MOB COINS] §fMob coins de §6" + t + "§f: §6" + df.format(tCoins.getCoins()));
@@ -88,17 +92,18 @@ public class MobCoinsCMD implements CommandExecutor {
                 return true;
             }
             if (args.length >= 3) {
+                Player t = Bukkit.getPlayer(args[1]);
+                PlayerCoins targetCoins = coinsManager.getPlayer(args[1]);
                 switch (args[0].toLowerCase()) {
                     case "enviar":
                         Boolean enviarCMD = Main.getInstance().getConfig().getBoolean("sub-commands.enviar");
                         if (enviarCMD) {
-                            Player t = Bukkit.getPlayer(args[1]);
                             if (t != null) {
                                 if (isNumber(args[2])) {
                                     Integer sendCoins = Integer.valueOf(args[2]);
                                     if (coins.getCoins() >= sendCoins) {
                                         coins.removeCoins(sendCoins);
-                                        PlayerCoins.getPlayer(t.getName()).addCoins(sendCoins);
+                                        coinsManager.getPlayer(t.getName()).addCoins(sendCoins);
                                         p.sendMessage("§aVocê enviou §6" + df.format(sendCoins) + " mob coins §apara o jogador §6" + t.getName() + "§a.");
                                         t.sendMessage("§aVocê recebeu §6" + df.format(sendCoins) + " mob coins §ado jogador §6" + p.getName() + "§a.");
                                     }else {
@@ -118,11 +123,10 @@ public class MobCoinsCMD implements CommandExecutor {
                         if (p.hasPermission("southdev.mobcoins.admin")) {
                             Boolean addCMD = Main.getInstance().getConfig().getBoolean("sub-commands.adicionar");
                             if (addCMD) {
-                                String t = args[1];
-                                if (PlayerCoins.getPlayer(t) != null) {
+                                if (targetCoins != null) {
                                     if (isNumber(args[2])) {
                                         Integer sendCoins = Integer.valueOf(args[2]);
-                                        PlayerCoins.getPlayer(t).addCoins(sendCoins);
+                                        targetCoins.addCoins(sendCoins);
                                         p.sendMessage("§aVocê adicionou §6" + df.format(sendCoins) + " mob coins §apara o jogador §6" + t + "§a.");
                                     }else {
                                         p.sendMessage("§cDigite um número válido.");
@@ -141,11 +145,10 @@ public class MobCoinsCMD implements CommandExecutor {
                         if (p.hasPermission("southdev.mobcoins.admin")) {
                             Boolean remCMD = Main.getInstance().getConfig().getBoolean("sub-commands.remover");
                             if (remCMD) {
-                                String t = args[1];
-                                if (PlayerCoins.getPlayer(t) != null) {
+                                if (targetCoins != null) {
                                     if (isNumber(args[2])) {
                                         Integer sendCoins = Integer.valueOf(args[2]);
-                                        PlayerCoins.getPlayer(t).removeCoins(sendCoins);
+                                        targetCoins.removeCoins(sendCoins);
                                         p.sendMessage("§aVocê removeu §c" + df.format(sendCoins) + " mob coins §ado jogador §c" + t + "§a.");
                                     }else {
                                         p.sendMessage("§cDigite um número válido.");
@@ -164,11 +167,10 @@ public class MobCoinsCMD implements CommandExecutor {
                         if (p.hasPermission("southdev.mobcoins.admin")) {
                             Boolean setCMD = Main.getInstance().getConfig().getBoolean("sub-commands.setar");
                             if (setCMD) {
-                                String t = args[1];
-                                if (PlayerCoins.getPlayer(t) != null) {
+                                if (targetCoins != null) {
                                     if (isNumber(args[2])) {
                                         Integer sendCoins = Integer.valueOf(args[2]);
-                                        PlayerCoins.getPlayer(t).setCoins(sendCoins);
+                                        targetCoins.setCoins(sendCoins);
                                         p.sendMessage("§aVocê setou os mob coins do jogador §c" + t + " §apara §c" + df.format(sendCoins) + "§a.");
                                     } else {
                                         p.sendMessage("§cDigite um número válido.");

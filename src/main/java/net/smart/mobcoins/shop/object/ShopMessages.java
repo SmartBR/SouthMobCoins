@@ -1,23 +1,22 @@
 package net.smart.mobcoins.shop.object;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import net.smart.mobcoins.Main;
 
 import java.util.List;
 
-@Data
-public class ShopMessages {
+@AllArgsConstructor
+public enum ShopMessages {
 
-    private List<String> erroBuy, sucessBuy;
+    ERRO_BUY(null),
+    SUCESS_BUY(null);
 
-    public static ShopMessages load() {
-        List<String> erroBuy = Main.getInstance().shop.getStringList("messages.erro-buy");
-        List<String> sucessBuy = Main.getInstance().shop.getStringList("messages.sucess-buy");
-        ShopMessages shopMessages = new ShopMessages(erroBuy, sucessBuy);
-        return shopMessages;
-    }
-    public ShopMessages(List<String> erroBuy, List<String> sucessBuy) {
-        this.erroBuy = erroBuy;
-        this.sucessBuy = sucessBuy;
+    @Getter private List<String> msg;
+
+    public static void load() {
+        ERRO_BUY.msg = Main.getInstance().shop.getStringList("messages.erro-buy");
+        SUCESS_BUY.msg = Main.getInstance().shop.getStringList("messages.sucess-buy");
     }
 }

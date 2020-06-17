@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45c9f165-1dfd-434b-b1d6-2fcf7e04e634" name="Default Changelist" comment="" />
+    <list default="true" id="45c9f165-1dfd-434b-b1d6-2fcf7e04e634" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smart/mobcoins/shop/listener/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smart/mobcoins/shop/listener/InventoryClickListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,11 +23,23 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\smart_000\IdeaProjects\SouthMobCoins\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1am8HBUDqlk9mxU1Iy38Ohz9Bp2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -37,8 +51,9 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="southmobcoins" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/HelixMC/RankUP [century]/plugins/LegendChat.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/HelixMC/RankUP - Head/plugins/MVdWPlaceholderAPI.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.14550781" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -51,31 +66,55 @@
       <recent name="C:\Users\smart_000\IdeaProjects\SouthMobCoins\src\main\java\net\smart\mobcoins\grapple" />
     </key>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.2" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="445" y="29" key="#com.intellij.ide.util.MemberChooser" timestamp="1587397829159">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="445" y="29" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1587397829159" />
+    <state x="483" y="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1590202608683">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="483" y="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1590202608683" />
     <state x="370" y="93" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1587758015517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="370" y="93" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1587758015517" />
-    <state x="346" y="80" key="FileChooserDialogImpl" timestamp="1587756985979">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="225" y="0" key="CommitChangelistDialog2" timestamp="1592418993109">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="212" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1590426124680" />
+    <state x="225" y="0" key="CommitChangelistDialog2/0.0.1360.728@0.0.1360.728" timestamp="1592418993109" />
+    <state x="368" y="86" key="FileChooserDialogImpl" timestamp="1592416869088">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="346" y="80" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587756985979" />
-    <state x="120" y="0" key="SettingsEditor" timestamp="1587758019677">
+    <state x="368" y="86" key="FileChooserDialogImpl/0.0.1360.728@0.0.1360.728" timestamp="1592416869088" />
+    <state x="128" y="0" key="SettingsEditor" timestamp="1592416871606">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="120" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1590202704553" />
+    <state x="128" y="0" key="SettingsEditor/0.0.1360.728@0.0.1360.728" timestamp="1592416871606" />
+    <state x="316" y="162" key="com.intellij.ide.util.TipDialog" timestamp="1588461755609">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="120" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587758019677" />
-    <state x="316" y="162" key="com.intellij.ide.util.TipDialog" timestamp="1587756842735">
+    <state x="316" y="162" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588461755609" />
+    <state x="447" y="250" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590202710668">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="316" y="162" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587756842735" />
-    <state x="296" y="145" key="run.anything.popup" timestamp="1587752328232">
+    <state x="447" y="250" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1590202710668" />
+    <state x="307" y="0" key="new project wizard" timestamp="1590426266566">
       <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="307" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1590426266566" />
+    <state x="315" y="155" key="run.anything.popup" timestamp="1592417717511">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="296" y="145" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587752328232" />
+    <state x="315" y="155" key="run.anything.popup/0.0.1360.728@0.0.1360.728" timestamp="1592417717511" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587403504913">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
